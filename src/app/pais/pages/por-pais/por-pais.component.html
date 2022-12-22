@@ -1,1 +1,37 @@
-<p>por-pais works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+<h2>Por País</h2>
+<hr>
+
+<div class="row s9">
+  <app-pais-input (onEnter)="buscar($event)"
+  (onDebounce)="sugerencias($event)"
+  placeholder="Por País..."></app-pais-input>
+</div>
+  <ul *ngIf="mostrarSugerencias" class="collection" >
+    <li *ngFor="let pais of paisesSugeridos" class="collection-item active">
+      <a class="nav-link" [routerLink]="['/pais', pais.alpha2Code]">
+      {{ pais.name }}</a>
+    </li>
+    <li  class="collection-item active"
+      (click)="buscarSugerido( termino )">
+      <a class="nav-link">
+      Buscar {{ termino }}
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<div *ngIf="hayError"
+class="alert card red lighten-4 red-text text-darken-4">
+  <div class="card-content">
+    <p><i class="material-icons">report</i><span>This is an alert:</span>
+      No se encontró nada con el término {{ termino }}.</p>
+  </div>
+</div>
+
+<div  *ngIf="paises.length > 0" class="row s12">
+<div class="col s12">
+  <app-pais-tabla [paises]="paises"></app-pais-tabla>
+ </div>
+</div>

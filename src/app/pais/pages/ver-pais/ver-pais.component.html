@@ -1,1 +1,68 @@
-<p>ver-pais works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+<div *ngIf="!pais; else divpais" class="alert card blue lighten-4 blue-text text-darken-3">
+  <div class="card-content">
+    <p><i class="material-icons">info</i><span>This is an alert:</span>
+      Please wait while loading the information.</p>
+  </div>
+</div>
+
+<ng-template #divpais>
+  <div class="row">
+    <div class="col s12">
+      <h1>País: <small>{{ pais.name }}</small></h1>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col s4">
+      <div class="card">
+        <div class="card-image">
+      <h3>Bandera</h3>
+      <img [src]="pais.flag">
+        </div>
+      </div>
+    </div>
+
+    <div class="col ">
+      <h3>Información</h3>
+      <ul class="collection ">
+        <li class="collection-item avatar">
+          <img [src]="pais.flag" alt="" class="circle">
+          <strong class="title">Población</strong>
+          <p>{{ pais.population | number }} de habitantes.</p>
+        </li>
+        <li class="collection-item">
+          <strong class="title">Código numérico</strong>
+          <p>{{ pais.numericCode }}</p>
+        </li>
+        <li class="collection-item">
+           <strong class="title">Código alpha3</strong>
+          <p>{{ pais.alpha3Code}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col">
+        <span class=" badge blue ">{{ pais.translations.de }} </span>
+        <span class=" badge blue ">{{ pais.translations.es }} </span>
+        <span class=" badge blue ">{{ pais.translations.fr }} </span>
+        <span class=" badge blue ">{{ pais.translations.ja }} </span>
+        <span class=" badge blue ">{{ pais.translations.br }} </span>
+        <span class=" badge blue ">{{ pais.translations.pt }} </span>
+        <span class=" badge blue ">{{ pais.translations.nl }} </span>
+        <span class=" badge blue ">{{ pais.translations.hu }} </span>
+        <span class=" badge blue ">{{ pais.translations.fa }} </span>
+        <span class=" badge blue ">{{ pais.translations.it }} </span>
+    </div>
+  </div>
+
+
+
+
+
+
+</ng-template>
+
+</div>

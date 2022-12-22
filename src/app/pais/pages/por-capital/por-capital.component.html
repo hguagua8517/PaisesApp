@@ -1,1 +1,26 @@
-<p>por-capital works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>Por Capital</h2>
+<hr>
+
+<div class="row s9">
+  <app-pais-input (onEnter)="buscar($event)"
+  placeholder="Por Capital..."></app-pais-input>
+</div>
+</div>
+
+
+
+
+<div *ngIf="hayError"
+class="alert card red lighten-4 red-text text-darken-4">
+  <div class="card-content">
+    <p><i class="material-icons">report</i><span>This is an alert:</span> 
+      No se encontró nada con el término {{ termino }}.</p>
+  </div>
+</div>
+
+<div  *ngIf="paises.length > 0" class="row s12">
+<div class="col s12">
+  <app-pais-tabla [paises]="paises"></app-pais-tabla>
+ </div>
+</div>
